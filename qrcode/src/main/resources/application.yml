@@ -1,0 +1,14 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: qrcode
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+QR:
+  content: https://github.com/fengliao/SpringCloudDemo.git
+  imgPath: D:\我的文档\My Pictures\Who Wishes Dawn.jpg
+  destPath: E:\迅雷下载\
