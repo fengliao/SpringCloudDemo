@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableDiscoveryClient
 @RestController
+@RefreshScope
 public class QrcodeApplication {
 	private final Logger log= LoggerFactory.getLogger(QrcodeApplication.class);
 
@@ -40,7 +42,7 @@ public class QrcodeApplication {
 		long l = System.currentTimeMillis()/1000;
 		String time = String.valueOf(l);
 		try {
-			Boolean flag = QRCodeUtil.encode(content, null, destPath, false, time);
+			Boolean flag = QRCodeUtil.encode(content, imgPath, destPath, true, time);
 			if (!flag){
 				return "二维码生成失败,请重试！";
 			}
