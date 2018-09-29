@@ -50,6 +50,7 @@
         <option value="$PROJECT_DIR$/config-server/pom.xml" />
         <option value="$PROJECT_DIR$/config-client/pom.xml" />
         <option value="$PROJECT_DIR$/qrcode/pom.xml" />
+        <option value="$PROJECT_DIR$/zipkinserver/pom.xml" />
       </list>
     </option>
   </component>

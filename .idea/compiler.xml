@@ -13,6 +13,7 @@
         <module name="feign" />
         <module name="qrcode" />
         <module name="ribbon" />
+        <module name="zipkinserver" />
         <module name="zuul" />
       </profile>
     </annotationProcessing>
@@ -27,6 +28,7 @@
       <module name="qrcode" target="1.8" />
       <module name="ribbon" target="1.8" />
       <module name="springcloud" target="1.5" />
+      <module name="zipkinserver" target="1.8" />
       <module name="zuul" target="1.8" />
     </bytecodeTargetLevel>
   </component>

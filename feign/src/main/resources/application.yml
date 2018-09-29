@@ -9,6 +9,13 @@ eureka:
 spring:
   application:
     name: service-feign
+  #抽样配置 默认0.1 十次上传一次
+  sleuth:
+    sampler:
+      probability: 0.5
+  #全链路追踪监控 配置服务端地址
+  zipkin:
+    base-url: http://localhost:9411
 
 feign:
   hystrix:
