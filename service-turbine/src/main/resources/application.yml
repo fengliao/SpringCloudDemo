@@ -1,0 +1,32 @@
+server:
+  port: 8764
+
+spring:
+  application:
+    name: service-turbine
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+turbine:
+  aggregator:
+    #指定聚合哪些集群
+    cluster-config: default
+  #配置监控服务的列表 多个服务用,隔开
+  app-config: hello
+  #用于指定集群名称
+  cluster-name-expression: new String("default")
+  #可以让同一主机上的服务通过主机名与端口号的组合来进行区分，默认情况下会以host来区分不同的服务
+  combine-host-port: true
+  instanceUrlSuffix:
+    default: actuator/hystrix.stream
