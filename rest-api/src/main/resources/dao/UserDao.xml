@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fengliao.restapi.dao.UserDao">
+    <sql id="user_query_column">
+		u.user_id as userId,
+		u.user_no as userNo,
+		u.user_name as userName,
+		u.user_realname as userRealname,
+		u.user_phone as userPhone,
+		u.user_sex as userSex,
+		u.user_idcard as userIdcard,
+		u.user_position as
+		userPosition,
+		u.user_img as userImg,
+		u.user_remark as userRemark,
+		u.dept_id as deptId,
+		u.flag as flag,
+		u.delete_flag as deleteFlag,
+		u.create_time as createTime,
+		u.create_by as
+		createBy
+	</sql>
+
+    <resultMap id="baseMap" type="com.fengliao.restapi.userEntity.User">
+        <result column="user_id" property="userId" />
+        <result column="user_no" property="userNo" />
+        <result column="user_name" property="userName" />
+        <result column="user_realname" property="userRealname" />
+        <result column="user_phone" property="userPhone" />
+        <result column="user_idcard" property="userIdcard" />
+        <result column="user_position" property="userPosition" />
+        <result column="user_sex" property="userSex" />
+        <result column="user_img" property="userImg" />
+        <result column="user_remark" property="userRemark" />
+        <result column="dept_id" property="deptId" />
+        <result column="flag" property="flag" />
+        <result column="delete_flag" property="deleteFlag" />
+        <result column="create_time" property="createTime" />
+        <result column="create_by" property="createBy" />
+        <result column="ip" property="ip" />
+        <result column="login_times" property="loginTimes"/>
+    </resultMap>
+
+    <select id="findAllUser" resultMap="baseMap">
+        select * from sys_user;
+    </select>
+
+    <select id="findUserById" parameterType="java.lang.String" resultMap="baseMap">
+        select * from sys_user where user_no=#{id}
+    </select>
+
+    <insert id="creatUser" parameterType="com.fengliao.restapi.userEntity.User">
+        <selectKey resultType="String" order="BEFORE" keyProperty="userId">
+            select uuid() as userId from dual
+        </selectKey>
+        insert into sys_user(user_id,user_no,user_name,password,user_realname,user_phone,user_idcard,user_position,user_sex,user_img,user_remark,
+        dept_id,dept_name, flag,delete_flag,create_time,create_by,login_times )
+         values (#{userId,jdbcType=VARCHAR},
+        #{userNo,jdbcType=VARCHAR},
+        #{userName,jdbcType=VARCHAR},
+        #{password,jdbcType=VARCHAR},
+        #{userRealname,jdbcType=VARCHAR},
+        #{userPhone,jdbcType=VARCHAR},
+        #{userIdcard,jdbcType=VARCHAR},
+        #{userPosition,jdbcType=VARCHAR},
+        #{userSex,jdbcType=VARCHAR},
+        #{userImg,jdbcType=VARCHAR},
+        #{userRemark,jdbcType=VARCHAR},
+        #{deptId,jdbcType=VARCHAR},
+        #{deptName,jdbcType=VARCHAR},
+        #{flag,jdbcType=VARCHAR},
+        #{deleteFlag,jdbcType=VARCHAR},
+        now(),
+        #{createBy,jdbcType=VARCHAR},
+        #{loginTimes,jdbcType=NUMERIC});
+    </insert>
+
+</mapper>

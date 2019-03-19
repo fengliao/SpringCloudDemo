@@ -20,3 +20,12 @@ spring:
 feign:
   hystrix:
     enabled: true
+
+app:
+  id: public
+apollo:
+  meta: http://47.100.233.192:8080
+  bootstrap:
+    namespaces: TEST1.Feign-config
+    eagerLoad:
+      enabled=true:
