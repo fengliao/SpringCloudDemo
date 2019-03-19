@@ -11,11 +11,12 @@
         <module name="eureka-client" />
         <module name="eureka-server" />
         <module name="feign" />
+        <module name="gateway" />
         <module name="qrcode" />
+        <module name="rest-api" />
         <module name="ribbon" />
         <module name="service-turbine" />
         <module name="zipkinserver" />
-        <module name="zuul" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -26,12 +27,28 @@
       <module name="eureka-client" target="1.8" />
       <module name="eureka-server" target="1.8" />
       <module name="feign" target="1.8" />
+      <module name="gateway" target="1.8" />
       <module name="qrcode" target="1.8" />
+      <module name="rest-api" target="1.8" />
       <module name="ribbon" target="1.8" />
       <module name="service-turbine" target="1.8" />
       <module name="springcloud" target="1.5" />
       <module name="zipkinserver" target="1.8" />
-      <module name="zuul" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="config-client" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="eureka-client" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="feign" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="qrcode" options="-parameters" />
+      <module name="rest-api" options="-parameters" />
+      <module name="ribbon" options="-parameters" />
+      <module name="service-turbine" options="-parameters" />
+      <module name="zipkinserver" options="-parameters" />
+    </option>
   </component>
 </project>

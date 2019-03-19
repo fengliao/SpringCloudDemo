@@ -52,6 +52,8 @@
         <option value="$PROJECT_DIR$/qrcode/pom.xml" />
         <option value="$PROJECT_DIR$/zipkinserver/pom.xml" />
         <option value="$PROJECT_DIR$/service-turbine/pom.xml" />
+        <option value="$PROJECT_DIR$/rest-api/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway/pom.xml" />
       </list>
     </option>
   </component>
